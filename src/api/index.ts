@@ -43,7 +43,7 @@ export async function getOneUser(email: string) {
     .catch((error) => error);
 }
 
-export async function comment(form: CommentInput) {
+export async function comment(form: CommentInput, idPost: number) {
   return await axios
     .put(`${URL_API}/comment`, form)
     .then((res) => res.data)

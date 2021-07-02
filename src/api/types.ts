@@ -40,7 +40,5 @@ export type PhotoType = {
 };
 
 export type CommentInput = {
-  name: string | null;
   body: string;
-  user: string | null;
 };

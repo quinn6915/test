@@ -75,7 +75,9 @@ const ListPost: FC = () => {
                 ) : (
                   <button
                     disabled={form.body === undefined || form.body === ""}
-                    onClick={(e: SyntheticEvent) => submit(e, setLoading)}
+                    onClick={(e: SyntheticEvent) =>
+                      submit(e, setLoading, item.id)
+                    }
                   >
                     Envoyer
                   </button>

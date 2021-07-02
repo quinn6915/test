@@ -18,7 +18,7 @@ export const commentSlice = createSlice({
       state.comments = action.payload;
     },
     addComment: (state, action: PayloadAction<any>) => {
-      state.comments.unshift(action.payload);
+      state.comments.push(action.payload);
     },
   },
 });
