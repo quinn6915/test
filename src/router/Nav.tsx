@@ -9,7 +9,7 @@ const item = classNames(
   "justify-center"
 );
 
-const active = classNames(item, "bg-gray-100", "rounded-lg");
+//const active = classNames(item, "bg-gray-100", "rounded-lg");
 
 export default function Nav() {
   return (
