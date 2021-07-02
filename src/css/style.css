@@ -1,0 +1,50 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.hover-outer-box {
+  position: relative;
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.hover-outer-box .hover-inner-box {
+  background: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 0;
+  transition: opacity 0.5s;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.hover-outer-box:hover .hover-inner-box {
+  opacity: 0.9;
+  transition: opacity 0.5s;
+}
+
+.hover-outer-box .hover-inner-box .hover-content {
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.team .team-icon {
+  max-width: 16px;
+}
+
+.full-img {
+  width: 100%;
+  height: auto;
+}
