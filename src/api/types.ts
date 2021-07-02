@@ -38,29 +38,3 @@ export type PhotoType = {
   url: string;
   thumbnailUrl: string;
 };
-
-export type ItemCarType = PostType & {
-  _id: string;
-  imageUrl: string;
-  date: string;
-  comments: [comType];
-  user: {
-    _id: string;
-    name: string;
-  };
-};
-
-export type comType = {
-  _id: string;
-  date: string;
-  content: string;
-  user: {
-    _id: string;
-    name: string;
-  };
-};
-
-export type CommentInput = {
-  [index: number]: string;
-  user: string | null;
-};

@@ -7,6 +7,7 @@ import { useAppSelector } from "../hooks";
 export function AuthButton() {
   const user = useAppSelector((state) => state.user);
   const { addToast } = useToasts();
+  //const [loading, setLoading] = useState<Boolean>(false);
 
   let auth = useAuth() as authType;
 

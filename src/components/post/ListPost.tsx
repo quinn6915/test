@@ -1,7 +1,6 @@
 import { PostType } from "../../api/types";
 import { useAppSelector } from "../../hooks";
 import { usePosts } from "../../services/Post";
-//import { useComment } from "../../services/Comment";
 import { FC } from "react";
 import { useAuth } from "../../context/Auth";
 import { authType } from "../../CostumType";
@@ -13,9 +12,7 @@ const ListPost: FC = () => {
   const users = useAppSelector((state) => state.user.users);
   const posts = useAppSelector((state) => state.post.posts);
   const comments = useAppSelector((state) => state.comment.comments);
-  //const { form, handleChange, submit } = useComment();
   let auth = useAuth() as authType;
-  //const [loading, setLoading] = useState<Boolean>(false);
 
   return (
     <>
@@ -31,7 +28,6 @@ const ListPost: FC = () => {
               <p className="text-black font-semibold">{item.title}</p>
             </div>
             <div className="mt-2 mb-1 flex items-center justify-start mx-8">
-              {/*<p className="text-black font-semibold">{item.user.name}</p>{" "}*/}
               <p className="">{item.body}</p>
             </div>
             <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold">
@@ -53,39 +49,11 @@ const ListPost: FC = () => {
                         <p className="text-black font-semibold">{com.email}</p>
                         <span className="flex flex-col">
                           <p className="text-gray-500 ml-2 my-1">{com.body}</p>
-                          {/*<span className="text-gray-500 ml-2 text-sm">
-                        {moment(new Date(com.date), "YYYYMMDD").fromNow()}
-                      </span>*/}
                         </span>
                       </span>
                     )
                 )}
             </div>
-            {/*{auth.user && (
-              <div className="my-2 mb-4 flex items-center justify-start mx-8">
-                <input
-                  required
-                  type="text"
-                  className="focus:outline-none bg-gray-100 w-full"
-                  placeholder="Votre commentaire"
-                  name={form[i]}
-                  onChange={(e) => handleChange(e, i)}
-                  value={form[i] || ""}
-                />
-                {loading ? (
-                  <SpinnerCircular size="25" color="black" />
-                ) : (
-                  <button
-                    disabled={form[i] === undefined || form[i] === ""}
-                    onClick={(e: SyntheticEvent) =>
-                      submit(e, item._id, setLoading, i)
-                    }
-                  >
-                    Envoyer
-                  </button>
-                )}
-              </div>
-            )}*/}
           </div>
         </div>
       ))}

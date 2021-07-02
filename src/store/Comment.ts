@@ -17,15 +17,6 @@ export const commentSlice = createSlice({
     setAllComment: (state, action: PayloadAction<any>) => {
       state.comments = action.payload;
     },
-    /*addCar: (state, action: PayloadAction<PostType>) => {
-      state.comments.unshift(action.payload);
-    },
-    commentCar: (state, action: PayloadAction<PostType>) => {
-      const index = state.comments.findIndex(
-        (obj) => obj.id === action.payload.id
-      );
-      state.comments[index] = action.payload;
-    },*/
   },
 });
 

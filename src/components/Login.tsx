@@ -1,4 +1,3 @@
-import { useHistory, useLocation } from "react-router-dom";
 import { Location } from "history";
 import { authType } from "../CostumType";
 import { useAuth } from "../context/Auth";
@@ -17,16 +16,12 @@ export default function Login() {
   const { form, handleChange } = useProvideAuth();
   const dispatch = useAppDispatch();
 
-  let history = useHistory();
-  //let location = useLocation<LocationState>();
   let auth = useAuth() as authType;
 
-  //let { from } = location.state || { from: { pathname: "/" } };
   let login = (event: SyntheticEvent) => {
     event.preventDefault();
     auth.signin(() => {
       dispatch(setUserConnected(form.name));
-      //history.replace(from);
       addToast("Bienvenue", {
         appearance: "success",
         autoDismiss: true,

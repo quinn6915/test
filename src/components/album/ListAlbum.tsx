@@ -13,9 +13,7 @@ const ListAlbum: FC = () => {
   const users = useAppSelector((state) => state.user.users);
   const albums = useAppSelector((state) => state.album.album);
   const photos = useAppSelector((state) => state.photo.photo);
-  //const { form, handleChange, submit } = useComment();
   let auth = useAuth() as authType;
-  //const [loading, setLoading] = useState<Boolean>(false);
 
   return (
     <>
@@ -30,10 +28,6 @@ const ListAlbum: FC = () => {
             <div className="mt-4 flex items-center justify-center ml-8 mx-8">
               <p className="text-black">{item.title}</p>
             </div>
-            {/* <div className="mt-2 mb-1 flex items-center justify-start mx-8">
-              <p className="text-black font-semibold">{item.user.name}</p>{" "}
-              <p className="">{item.body}</p>
-            </div>*/}
             <p className="h-8 flex items-center justify-center ml-8 mx-8">
               {UserName(item, users)}
             </p>
@@ -46,7 +40,7 @@ const ListAlbum: FC = () => {
                 photos.map(
                   (photo) =>
                     photo.albumId === item.id && (
-                      <div className="hover-outer-box">
+                      <div key={photo.id} className="hover-outer-box">
                         <img src={photo.url} alt="" className="full-img" />
                         <div className="hover-inner-box">
                           <div className="hover-content">
