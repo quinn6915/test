@@ -1,17 +1,22 @@
 import { PostType } from "../../api/types";
 import { useAppSelector } from "../../hooks";
 import { usePosts } from "../../services/Post";
-import { FC } from "react";
+import { FC, SyntheticEvent, useState } from "react";
 import { useAuth } from "../../context/Auth";
 import { authType } from "../../CostumType";
 import { SpinnerCircular } from "spinners-react";
 import { UserCity, UserName, UserStreet, UserSuite } from "../../Utils";
+import { useComment } from "../../services/Comment";
 
 const ListPost: FC = () => {
   usePosts();
   const users = useAppSelector((state) => state.user.users);
   const posts = useAppSelector((state) => state.post.posts);
   const comments = useAppSelector((state) => state.comment.comments);
+  const [loading, setLoading] = useState<Boolean>(false);
+
+  const { form, handleChange, submit } = useComment();
+
   let auth = useAuth() as authType;
 
   return (
@@ -54,6 +59,29 @@ const ListPost: FC = () => {
                     )
                 )}
             </div>
+            {auth.user && (
+              <div className="my-2 mb-4 flex items-center justify-start mx-8">
+                <input
+                  required
+                  type="text"
+                  className="focus:outline-none bg-gray-100 w-full"
+                  placeholder="Votre commentaire"
+                  name="body"
+                  onChange={(e) => handleChange(e, i)}
+                  value={form.body}
+                />
+                {loading ? (
+                  <SpinnerCircular size="25" color="black" />
+                ) : (
+                  <button
+                    disabled={form.body === undefined || form.body === ""}
+                    onClick={(e: SyntheticEvent) => submit(e, setLoading)}
+                  >
+                    Envoyer
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
       ))}

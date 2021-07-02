@@ -17,10 +17,13 @@ export const commentSlice = createSlice({
     setAllComment: (state, action: PayloadAction<any>) => {
       state.comments = action.payload;
     },
+    addComment: (state, action: PayloadAction<any>) => {
+      state.comments.unshift(action.payload);
+    },
   },
 });
 
-export const { setAllComment } = commentSlice.actions;
+export const { setAllComment, addComment } = commentSlice.actions;
 
 export const selectComment = (state: RootState) => state.comment.comments;
 

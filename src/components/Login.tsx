@@ -10,7 +10,7 @@ import { ThreeDots } from "../css/threedots";
 export default function Login() {
   const [loading, setLoading] = useState<Boolean>(false);
   const { addToast } = useToasts();
-  const { form, handleChange } = useProvideAuth();
+  const { form, handleChange, connect } = useProvideAuth();
   const dispatch = useAppDispatch();
 
   let auth = useAuth() as authType;
@@ -18,13 +18,25 @@ export default function Login() {
   let login = (event: SyntheticEvent) => {
     event.preventDefault();
     setLoading(true);
-    auth.signin(() => {
-      dispatch(setUserConnected(form.name));
-      addToast("Bienvenue", {
-        appearance: "success",
-        autoDismiss: true,
-      });
-      setLoading(false);
+
+    const result = connect();
+
+    result.then(function (result) {
+      if (result[0]) {
+        auth.signin(() => {
+          dispatch(setUserConnected(result[0]));
+          addToast("Bienvenue", {
+            appearance: "success",
+            autoDismiss: true,
+          });
+        });
+      } else {
+        setLoading(false);
+        addToast("Utilisateur non trouvé", {
+          appearance: "error",
+          autoDismiss: true,
+        });
+      }
     });
   };
 
@@ -36,14 +48,17 @@ export default function Login() {
       >
         <p className="text-lg">Connectez vous!</p>
         <div className="mb-3 space-y-2 md:flex flex-col w-2/3  ">
-          <label className="font-semibold text-gray-600 py-2">Nom</label>
+          <label className="font-semibold text-gray-600 py-2">
+            Adresse Email
+          </label>
           <input
             required
-            placeholder="entrez votre nom"
+            placeholder="entrez votre email"
             className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-12 px-4"
-            name="name"
+            type="email"
+            name="email"
             onChange={handleChange}
-            value={form.name}
+            value={form.email}
           />
         </div>
         {loading ? (

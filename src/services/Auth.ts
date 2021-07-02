@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { getOneUser } from "../api";
 
 const fakeAuth = {
   isAuthenticated: false,
@@ -14,8 +15,8 @@ const fakeAuth = {
 
 export function useProvideAuth() {
   const [user, setUser] = useState<String | null>(null);
-  const [form, setForm] = useState<{ name: string }>({
-    name: "",
+  const [form, setForm] = useState<{ email: string }>({
+    email: "",
   });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +26,14 @@ export function useProvideAuth() {
       [name]: value,
     });
   };
+
+  async function connect() {
+    const response = await getOneUser(form.email).then((data) => {
+      return data;
+    });
+
+    return response;
+  }
 
   const signin = (cb: () => void) => {
     return fakeAuth.signin(async () => {
@@ -41,6 +50,7 @@ export function useProvideAuth() {
   };
 
   return {
+    connect,
     form,
     user,
     signin,

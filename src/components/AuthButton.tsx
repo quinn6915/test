@@ -14,7 +14,7 @@ export function AuthButton() {
 
   return auth.user ? (
     <div className="md:flex flex-col items-center justify-center mt-8">
-      <p className="text-lg">Bonjour {user.user} !</p>
+      <p className="text-lg">Bonjour {user.user?.name} !</p>
       {loading ? (
         <ThreeDots color="silver" height="30" width="30" />
       ) : (

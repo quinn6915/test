@@ -38,3 +38,9 @@ export type PhotoType = {
   url: string;
   thumbnailUrl: string;
 };
+
+export type CommentInput = {
+  name: string | null;
+  body: string;
+  user: string | null;
+};

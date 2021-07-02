@@ -1,5 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../constants/config";
+import { CommentInput } from "./types";
 
 export async function getAllPost() {
   return await axios
@@ -32,6 +33,19 @@ export async function getAllAlbum() {
 export async function getAllPhoto() {
   return await axios
     .get(`${URL_API}/photos`)
+    .then((res) => res.data)
+    .catch((error) => error);
+}
+
+export async function getOneUser(email: string) {
+  return await fetch(`${URL_API}/users?email=${email}`)
+    .then((res) => res.json())
+    .catch((error) => error);
+}
+
+export async function comment(form: CommentInput) {
+  return await axios
+    .put(`${URL_API}/comment`, form)
     .then((res) => res.data)
     .catch((error) => error);
 }

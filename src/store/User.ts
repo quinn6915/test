@@ -3,7 +3,7 @@ import { RootState } from ".";
 import { UserType } from "../api/types";
 
 interface UserState {
-  user: string | null;
+  user: UserType | null;
   users: UserType[];
 }
 
@@ -19,7 +19,7 @@ export const userSlice = createSlice({
     setAllUser: (state, action: PayloadAction<any>) => {
       state.users = action.payload;
     },
-    setUserConnected: (state, action: PayloadAction<any>) => {
+    setUserConnected: (state, action: PayloadAction<UserType>) => {
       state.user = action.payload;
     },
   },
