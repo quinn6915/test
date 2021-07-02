@@ -16,7 +16,6 @@ export default function App() {
   useEffect(() => {
     ref.current?.continuousStart();
     setTimeout(() => {
-      console.log("...loading something");
       ref.current.complete();
       setLoading(false);
     }, 1000);

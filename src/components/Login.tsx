@@ -1,17 +1,14 @@
-import { Location } from "history";
 import { authType } from "../CostumType";
 import { useAuth } from "../context/Auth";
 import { useToasts } from "react-toast-notifications";
 import { useProvideAuth } from "../services/Auth";
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../hooks";
 import { setUserConnected } from "../store/User";
-
-interface LocationState {
-  from: Location;
-}
+import { ThreeDots } from "../css/threedots";
 
 export default function Login() {
+  const [loading, setLoading] = useState<Boolean>(false);
   const { addToast } = useToasts();
   const { form, handleChange } = useProvideAuth();
   const dispatch = useAppDispatch();
@@ -20,12 +17,14 @@ export default function Login() {
 
   let login = (event: SyntheticEvent) => {
     event.preventDefault();
+    setLoading(true);
     auth.signin(() => {
       dispatch(setUserConnected(form.name));
       addToast("Bienvenue", {
         appearance: "success",
         autoDismiss: true,
       });
+      setLoading(false);
     });
   };
 
@@ -47,11 +46,15 @@ export default function Login() {
             value={form.name}
           />
         </div>
-        <input
-          type="submit"
-          value="Se connecter"
-          className="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-2/3"
-        />
+        {loading ? (
+          <ThreeDots color="silver" height="30" width="30" />
+        ) : (
+          <input
+            type="submit"
+            value="Se connecter"
+            className="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-2/3"
+          />
+        )}
       </form>
     </>
   );

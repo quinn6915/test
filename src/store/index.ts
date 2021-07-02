@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import postReducer from "./Post";
 import userReducer from "./User";
 import commentReducer from "./Comment";
@@ -13,6 +13,7 @@ export const store = configureStore({
     album: albumReducer,
     photo: photoReducer,
   },
+  middleware: [...getDefaultMiddleware({ immutableCheck: false })],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
