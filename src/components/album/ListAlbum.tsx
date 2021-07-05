@@ -26,32 +26,34 @@ const ListAlbum: FC = () => {
           <SpinnerCircular size="75" color="black" />
         </div>
       )}
-      <div className="grid grid-cols-2 gap-8 mt-8 mx-6">
-        {albums.map((item: AlbumType, i: number) => (
-          <figure
-            key={i}
-            className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 md:h-40"
-          >
-            <Gallery idPost={item.id} />
-            <div className="pt-6 md:p-6 text-center md:text-left ">
-              {/*space-y-4 */}
-              <blockquote>
-                <p className="font-semibold">{item.title}</p>
-              </blockquote>
-              <figcaption className="mt-2">
-                <div className="text-cyan-600">{UserName(item, users)}</div>
-                <div className="text-gray-500">
-                  {UserStreet(item, users)}, {UserSuite(item, users)},{" "}
-                  {UserCity(item, users)}
-                </div>
-                <div className="text-cyan-600 mt-2">
+      <div className="flex justify-center">
+        <div className="grid grid-cols-2 gap-8 mt-8 mx-6 w-3/4">
+          {albums.map((item: AlbumType, i: number) => (
+            <figure
+              key={i}
+              className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 md:h-40 "
+            >
+              <Gallery idPost={item.id} />
+              <div className="pt-6 md:p-6 text-center md:text-left ">
+                {/*space-y-4 */}
+                <blockquote>
+                  <p className="font-semibold">{item.title}</p>
+                </blockquote>
+                <div className="text-cyan-600 pt-2">
                   {/*pt-3*/}
                   {getPhotos(photos, item.id).length} photos
                 </div>
-              </figcaption>
-            </div>
-          </figure>
-        ))}
+                <figcaption className="pt-4">
+                  <div className="text-indigo-900">{UserName(item, users)}</div>
+                  <div className="text-gray-500">
+                    {UserStreet(item, users)}, {UserSuite(item, users)},{" "}
+                    {UserCity(item, users)}
+                  </div>
+                </figcaption>
+              </div>
+            </figure>
+          ))}
+        </div>
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import { useRef } from "react";
 import ListPost from "../components/post/ListPost";
 import ListAlbum from "../components/album/ListAlbum";
 import { Auth } from "../components/Auth";
+import ListTodo from "../components/todo/ListTodo";
 
 export default function App() {
   const [loading, setLoading] = useState<Boolean>(true);
@@ -27,27 +28,28 @@ export default function App() {
       {loading ? (
         ""
       ) : (
-        <div className="flex flex-row justify-center">
-          <div className=" w-5/6 ">
-            <Router>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/"
-                  layout={PrivatePage}
-                  component={ListPost}
-                />
-                <PrivateRoute
-                  path="/albums"
-                  layout={PrivatePage}
-                  component={ListAlbum}
-                />
-              </Switch>
-            </Router>
-          </div>
-          {/*<div className="w-1/3 mt-12 ">
-            <Auth />
-      </div>*/}
+        <div>
+          <Router>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/Posts"
+                layout={PrivatePage}
+                component={ListPost}
+              />
+              <PrivateRoute
+                path="/Albums"
+                layout={PrivatePage}
+                component={ListAlbum}
+              />
+              <PrivateRoute
+                path="/Todos"
+                layout={PrivatePage}
+                component={ListTodo}
+              />
+              <PrivateRoute path="/" layout={PrivatePage} component={Auth} />
+            </Switch>
+          </Router>
         </div>
       )}
     </ProvideAuth>
