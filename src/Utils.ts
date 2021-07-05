@@ -24,10 +24,10 @@ export function UserCity(data: PostType | AlbumType, users: UserType[]) {
   });
 }
 
-export function getPhotos(photos: PhotoType[], idPost: number) {
+export function getPhotos(photos: PhotoType[], idAlbum: number) {
   const selectedPhotos = [] as any;
   photos.forEach((e: PhotoType) => {
-    e.albumId === idPost &&
+    e.albumId === idAlbum &&
       selectedPhotos.push({
         photo: e.url,
         caption: e.id.toString(),

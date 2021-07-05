@@ -1,10 +1,14 @@
 import { AlbumType } from "../../api/types";
 import { useAppSelector } from "../../hooks";
 import { FC } from "react";
-import { useAuth } from "../../context/Auth";
-import { authType } from "../../CostumType";
 import { SpinnerCircular } from "spinners-react";
-import { UserCity, UserName, UserStreet, UserSuite } from "../../Utils";
+import {
+  getPhotos,
+  UserCity,
+  UserName,
+  UserStreet,
+  UserSuite,
+} from "../../Utils";
 import { useAlbums } from "../../services/Album";
 import "../../css/style.css";
 import Gallery from "./Gallery";
@@ -13,7 +17,7 @@ const ListAlbum: FC = () => {
   useAlbums();
   const users = useAppSelector((state) => state.user.users);
   const albums = useAppSelector((state) => state.album.album);
-  let auth = useAuth() as authType;
+  const photos = useAppSelector((state) => state.photo.photo);
 
   return (
     <>
@@ -22,23 +26,33 @@ const ListAlbum: FC = () => {
           <SpinnerCircular size="75" color="black" />
         </div>
       )}
-      {albums.map((item: AlbumType, i: number) => (
-        <figure key={i} className="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
-          {auth.user && <Gallery idPost={item.id} />}
-          <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
-            <blockquote>
-              <p className="text-lg font-semibold">{item.title}</p>
-            </blockquote>
-            <figcaption className="font-medium">
-              <div className="text-cyan-600">{UserName(item, users)}</div>
-              <div className="text-gray-500">
-                {UserStreet(item, users)}, {UserSuite(item, users)},{" "}
-                {UserCity(item, users)}
-              </div>
-            </figcaption>
-          </div>
-        </figure>
-      ))}
+      <div className="grid grid-cols-2 gap-8 mt-8 mx-6">
+        {albums.map((item: AlbumType, i: number) => (
+          <figure
+            key={i}
+            className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 md:h-40"
+          >
+            <Gallery idPost={item.id} />
+            <div className="pt-6 md:p-6 text-center md:text-left ">
+              {/*space-y-4 */}
+              <blockquote>
+                <p className="font-semibold">{item.title}</p>
+              </blockquote>
+              <figcaption className="mt-2">
+                <div className="text-cyan-600">{UserName(item, users)}</div>
+                <div className="text-gray-500">
+                  {UserStreet(item, users)}, {UserSuite(item, users)},{" "}
+                  {UserCity(item, users)}
+                </div>
+                <div className="text-cyan-600 mt-2">
+                  {/*pt-3*/}
+                  {getPhotos(photos, item.id).length} photos
+                </div>
+              </figcaption>
+            </div>
+          </figure>
+        ))}
+      </div>
     </>
   );
 };

@@ -30,8 +30,9 @@
 }
 
 .hover-outer-box:hover .hover-inner-box {
-  opacity: 0.9;
+  opacity: 0.5;
   transition: opacity 0.5s;
+  cursor: pointer;
 }
 
 .hover-outer-box .hover-inner-box .hover-content {

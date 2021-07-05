@@ -27,8 +27,8 @@ export default function App() {
       {loading ? (
         ""
       ) : (
-        <div className="flex flex-row">
-          <div className=" w-2/3 ">
+        <div className="flex flex-row justify-center">
+          <div className=" w-5/6 ">
             <Router>
               <Switch>
                 <PrivateRoute
@@ -45,9 +45,9 @@ export default function App() {
               </Switch>
             </Router>
           </div>
-          <div className="w-1/3 mt-12 ">
+          {/*<div className="w-1/3 mt-12 ">
             <Auth />
-          </div>
+      </div>*/}
         </div>
       )}
     </ProvideAuth>

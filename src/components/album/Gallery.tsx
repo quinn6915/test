@@ -18,9 +18,20 @@ const Gallery: React.FC<IGallery> = ({ idPost }) => {
 
   return (
     <>
-      <button onClick={toggleGallery}>Open photo gallery</button>
-      <img src={photosItems[0].photo} alt="" />
-      <span>{photosItems.length}</span>
+      <div className="hover-outer-box " onClick={toggleGallery}>
+        <img
+          src={photosItems[0]?.photo}
+          alt=""
+          width="150"
+          className="rounded-xl "
+        />
+        <div className="hover-inner-box ">
+          <div className="hover-content">
+            <p>ouvrir</p>
+          </div>
+        </div>
+      </div>
+
       <ReactBnbGallery
         show={galleryOpened}
         photos={photosItems}
