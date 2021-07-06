@@ -52,7 +52,9 @@ const ListTodo: FC = () => {
                 </button>
               </>
             ) : (
-              <p>Connectez-vous pour ajouter une todo</p>
+              <p className="text-gray-800">
+                Connectez-vous pour ajouter une todo
+              </p>
             )}
           </div>
         </div>
