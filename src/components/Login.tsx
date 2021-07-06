@@ -41,13 +41,12 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className="flex justify-center">
       <form
         onSubmit={login}
-        className="md:flex flex-col items-center justify-center "
+        className="md:flex flex-col items-center justify-center mt-8 w-1/4"
       >
-        <p className="text-lg">Connectez vous!</p>
-        <div className="mb-3 space-y-2 md:flex flex-col w-2/3  ">
+        <div className="mb-3 space-y-2 md:flex flex-col w-full  ">
           <label className="font-semibold text-gray-600 py-2">
             Adresse Email
           </label>
@@ -67,10 +66,10 @@ export default function Login() {
           <input
             type="submit"
             value="Se connecter"
-            className="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-2/3"
+            className="bg-gray-800 text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-full cursor-pointer"
           />
         )}
       </form>
-    </>
+    </div>
   );
 }

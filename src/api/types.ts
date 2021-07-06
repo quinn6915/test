@@ -39,6 +39,17 @@ export type PhotoType = {
   thumbnailUrl: string;
 };
 
+export type TodosType = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 export type CommentInput = {
   body: string;
+};
+
+export type TodoInput = {
+  title: string;
 };

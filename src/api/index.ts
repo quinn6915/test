@@ -49,3 +49,10 @@ export async function comment(form: CommentInput, idPost: number) {
     .then((res) => res.data)
     .catch((error) => error);
 }
+
+export async function getAllTodo() {
+  return await axios
+    .get(`${URL_API}/todos`)
+    .then((res) => res.data)
+    .catch((error) => error);
+}

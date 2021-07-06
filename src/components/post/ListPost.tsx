@@ -27,7 +27,7 @@ const ListPost: FC = () => {
         </div>
       )}
       {posts.map((item: PostType, i: number) => (
-        <div key={i} className="flex justify-center ">
+        <div key={i} className="flex justify-center">
           <div className="flex flex-col justify-center w-2/3 mt-8 border border-gray-100 bg-gray-100 rounded-lg">
             <div className="mt-4 flex items-center justify-center ml-8 mx-8">
               <p className="text-black font-semibold">{item.title}</p>
@@ -35,7 +35,7 @@ const ListPost: FC = () => {
             <div className="mt-2 mb-1 flex items-center justify-start mx-8">
               <p className="">{item.body}</p>
             </div>
-            <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold">
+            <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold text-indigo-500">
               {UserName(item, users)}
             </p>
             <p className="h-4 flex items-center justify-end ml-8 text-gray-500 mb-2 mx-8">

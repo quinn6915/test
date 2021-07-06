@@ -13,13 +13,13 @@ export function AuthButton() {
   let auth = useAuth() as authType;
 
   return auth.user ? (
-    <div className="md:flex flex-col items-center justify-center mt-8">
+    <div className="flex flex-col items-center justify-center mt-8">
       <p className="text-lg">Bonjour {user.user?.name} !</p>
       {loading ? (
         <ThreeDots color="silver" height="30" width="30" />
       ) : (
         <button
-          className="bg-gray-500 text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-2/3"
+          className="text-white font-bold text-lg bg-gray-800 p-2 my-4 rounded-lg hover:bg-gray-700  w-1/4"
           onClick={() => {
             setLoading(true);
 

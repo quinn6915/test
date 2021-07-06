@@ -1,6 +1,15 @@
-import { AlbumType, PostType, UserType } from "./api/types";
+import {
+  AlbumType,
+  PhotoType,
+  PostType,
+  TodosType,
+  UserType,
+} from "./api/types";
 
-export function UserName(data: PostType | AlbumType, users: UserType[]) {
+export function UserName(
+  data: PostType | AlbumType | TodosType,
+  users: UserType[]
+) {
   return users.map((u) => {
     return u.id === data.userId && u.name;
   });
@@ -22,4 +31,18 @@ export function UserCity(data: PostType | AlbumType, users: UserType[]) {
   return users.map((u) => {
     return u.id === data.userId && u.address.city;
   });
+}
+
+export function getPhotos(photos: PhotoType[], idAlbum: number) {
+  const selectedPhotos = [] as any;
+  photos.forEach((e: PhotoType) => {
+    e.albumId === idAlbum &&
+      selectedPhotos.push({
+        photo: e.url,
+        caption: e.id.toString(),
+        subcaption: e.title,
+        thumbnail: e.thumbnailUrl,
+      });
+  });
+  return selectedPhotos;
 }
