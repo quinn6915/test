@@ -13,7 +13,7 @@ export function AuthButton() {
   let auth = useAuth() as authType;
 
   return auth.user ? (
-    <div className="flex flex-col items-center justify-center mt-44 ">
+    <div className="flex flex-col items-center justify-center sm:mt-44 ">
       <p className="text-lg text-white">Bonjour {user.user?.name} !</p>
       {loading ? (
         <ThreeDots color="silver" height="30" width="30" />
