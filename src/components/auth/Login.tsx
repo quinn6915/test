@@ -51,7 +51,7 @@ export default function Login() {
           <input
             required
             placeholder="Entrez votre email"
-            className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-12 px-4"
+            className="text-center appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-12 px-4"
             type="email"
             name="email"
             onChange={handleChange}
