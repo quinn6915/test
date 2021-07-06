@@ -29,7 +29,7 @@ export default function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavLink
                     to="/Posts"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Posts
                   </NavLink>
@@ -120,7 +120,7 @@ export default function Nav() {
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavLink
                   to="/Posts"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Posts
                 </NavLink>

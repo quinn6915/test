@@ -51,11 +51,11 @@ const ListAlbum: FC = () => {
                 <blockquote>
                   <p className="font-semibold">{item.title}</p>
                 </blockquote>
-                <div className="text-cyan-600 pt-2">
+                <div className="text-sm text-gray-500 pt-2">
                   {/*pt-3*/}
                   {getPhotos(photos, item.id).length} photos
                 </div>
-                <figcaption className="pt-4">
+                <figcaption className="pt-6">
                   <div className="">{UserName(item, users)}</div>
                   <div className="text-gray-500">
                     {UserStreet(item, users)}, {UserSuite(item, users)},{" "}
