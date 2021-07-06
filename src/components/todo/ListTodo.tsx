@@ -64,7 +64,7 @@ const ListTodo: FC = () => {
       )}
       {todos.map((todo) => (
         <div key={todo.id} className="flex items-center justify-center">
-          <div className="bg-white rounded-lg shadow p-6 m-2 w-full lg:w-1/2 bg-gray-100">
+          <div className="bg-white rounded-lg shadow p-6 m-2 xs:w-full lg:w-1/2 bg-gray-100">
             <div className="flex items-center">
               <div className="w-full ">
                 <p
