@@ -45,7 +45,7 @@ const ListPost: FC = () => {
               <p className="text-black font-semibold">{item.title}</p>
             </div>
             <div className="mt-2 mb-1 flex items-center justify-start mx-8">
-              <p className="">{item.body}</p>
+              <p className="">"{item.body}"</p>
             </div>
             <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold">
               {UserName(item, users)}

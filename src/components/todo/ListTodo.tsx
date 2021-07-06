@@ -34,7 +34,7 @@ const ListTodo: FC = () => {
       <div className="flex justify-center my-4 ">
         <div className="w-1/3 ">
           <div className="flex mt-4 justify-center">
-            {auth.user ? (
+            {auth.user && todos.length !== 0 ? (
               <>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
@@ -45,7 +45,7 @@ const ListTodo: FC = () => {
                 />
                 <button
                   disabled={form.title === undefined || form.title === ""}
-                  className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-indigo-900 hover:bg-teal"
+                  className="flex-no-shrink p-2 border-2 rounded-lg text-teal border-teal hover:text-indigo-900 hover:bg-teal"
                   onClick={(e: SyntheticEvent) => submit(e)}
                 >
                   Ajouter

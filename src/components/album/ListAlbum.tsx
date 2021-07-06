@@ -46,7 +46,7 @@ const ListAlbum: FC = () => {
               className="md:flex bg-gray-100 rounded-lg p-8 md:p-0 md:h-40 shadow"
             >
               <Gallery idPost={item.id} />
-              <div className="pt-6 md:p-6 text-center md:text-left ">
+              <div className="md:p-4 text-center md:text-left ">
                 {/*space-y-4 */}
                 <blockquote>
                   <p className="font-semibold">{item.title}</p>

@@ -64,7 +64,7 @@ export default function Login() {
           <input
             type="submit"
             value="Se connecter"
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold text-lg p-2 my-4 rounded-lg  w-full cursor-pointer"
+            className="bg-gray-500 text-white text-lg p-2 my-4 rounded-lg  w-full cursor-pointer"
           />
         )}
       </form>

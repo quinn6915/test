@@ -19,7 +19,7 @@ export function AuthButton() {
         <ThreeDots color="silver" height="30" width="30" />
       ) : (
         <button
-          className="text-white font-bold text-lg bg-gray-400 hover:bg-gray-500 p-2 my-4 rounded-lg w-1/4"
+          className="text-white bg-gray-500 p-2 my-4 rounded-lg w-1/4"
           onClick={() => {
             setLoading(true);
 
