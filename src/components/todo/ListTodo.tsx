@@ -19,7 +19,19 @@ const ListTodo: FC = () => {
 
   return (
     <>
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center">
+        <div
+          className="h-96 bg-gradient-to-tl from-pink-400  to-purple-600 w-4/5 rounded-xl transform rotate-1 absolute top-1/3 "
+          style={{ zIndex: -1, position: "fixed" }}
+        ></div>
+      </div>
+      <div className="flex justify-center">
+        <div
+          className="h-96 bg-gray-300 w-4/5 rounded-xl transform rotate-2  absolute top-1/3 "
+          style={{ zIndex: -2, position: "fixed" }}
+        ></div>
+      </div>
+      <div className="flex justify-center my-4 ">
         <div className="w-1/3 ">
           <div className="flex mt-4 justify-center">
             {auth.user ? (
@@ -45,7 +57,6 @@ const ListTodo: FC = () => {
           </div>
         </div>
       </div>
-
       {todos.length === 0 && (
         <div className="flex justify-center items-center mt-32">
           <SpinnerCircular size="75" color="black" />

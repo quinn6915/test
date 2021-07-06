@@ -23,7 +23,7 @@ const Gallery: React.FC<IGallery> = ({ idPost }) => {
           src={photosItems[0]?.photo}
           alt=""
           width="150"
-          className="rounded-lg "
+          className="rounded-l-lg "
         />
         <div className="hover-inner-box ">
           <div className="hover-content">
