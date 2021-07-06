@@ -161,25 +161,3 @@ export default function Nav() {
     </div>
   );
 }
-
-{
-  /*<div className="text-black flex justify-center items-center h-12 bg-purple-100 border">
-      <ul className="flex justify-end">
-        <li className={item}>
-          <NavLink to="/posts" activeClassName={active}>
-            Posts
-          </NavLink>
-        </li>
-        <li className={item}>
-          <NavLink to="/albums" activeClassName={active}>
-            Albums
-          </NavLink>
-        </li>
-        <li className={item}>
-          <NavLink exact to="/" activeClassName={active}>
-            Auth
-          </NavLink>
-        </li>
-      </ul>
-        </div>*/
-}

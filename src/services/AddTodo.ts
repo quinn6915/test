@@ -1,4 +1,5 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { useToasts } from "react-toast-notifications";
 import { TodoInput, TodosType } from "../api/types";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addTodo } from "../store/Todos";
@@ -6,6 +7,7 @@ import { toggleTodoStore } from "../store/Todos";
 
 export const useAddTodo = () => {
   const user = useAppSelector((state) => state.user.user);
+  const { addToast } = useToasts();
 
   const dispatch = useAppDispatch();
   const [form, setForm] = useState<TodoInput>({
@@ -32,6 +34,10 @@ export const useAddTodo = () => {
     };
 
     dispatch(addTodo(value));
+    addToast("Todo ajouté", {
+      appearance: "success",
+      autoDismiss: true,
+    });
     setForm({
       title: "",
     });
