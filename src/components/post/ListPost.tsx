@@ -23,7 +23,7 @@ const ListPost: FC = () => {
     <>
       <div className="flex justify-center">
         <div
-          className="h-96 bg-gradient-to-r from-yellow-400  to-yellow-800 w-4/5 rounded-3xl transform -rotate-6 absolute top-1/3 "
+          className="h-96 bg-gradient-to-br from-yellow-400  to-yellow-800 w-4/5 rounded-3xl transform -rotate-6 absolute top-1/3 "
           style={{ zIndex: -1, position: "fixed" }}
         ></div>
       </div>
