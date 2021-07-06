@@ -23,13 +23,13 @@ const ListPost: FC = () => {
     <>
       <div className="flex justify-center">
         <div
-          className="h-96 bg-gradient-to-r from-yellow-400  to-yellow-800 w-4/5 rounded-xl transform rotate-6 absolute top-1/3 "
+          className="h-96 bg-gradient-to-r from-yellow-400  to-yellow-800 w-4/5 rounded-xl transform -rotate-6 absolute top-1/3 "
           style={{ zIndex: -1, position: "fixed" }}
         ></div>
       </div>
       <div className="flex justify-center">
         <div
-          className="h-96 bg-gray-300 w-4/5 rounded-xl transform rotate-3  absolute top-1/3 "
+          className="h-96 bg-gray-300 w-4/5 rounded-xl transform -rotate-3  absolute top-1/3 "
           style={{ zIndex: -2, position: "fixed" }}
         ></div>
       </div>
@@ -47,7 +47,7 @@ const ListPost: FC = () => {
             <div className="mt-2 mb-1 flex items-center justify-start mx-8">
               <p className="">{item.body}</p>
             </div>
-            <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold text-indigo-500">
+            <p className="h-8 flex items-center justify-end ml-8 mx-8 font-semibold">
               {UserName(item, users)}
             </p>
             <p className="h-4 flex items-center justify-end ml-8 text-gray-500 mb-2 mx-8">

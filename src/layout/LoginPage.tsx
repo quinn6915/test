@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthButton } from "../components/AuthButton";
+import { AuthButton } from "../components/auth/AuthButton";
 import Nav from "../router/Nav";
 
 type props = {

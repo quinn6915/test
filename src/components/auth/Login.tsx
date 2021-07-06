@@ -1,11 +1,11 @@
-import { authType } from "../CostumType";
-import { useAuth } from "../context/Auth";
+import { authType } from "../../CostumType";
+import { useAuth } from "../../context/Auth";
 import { useToasts } from "react-toast-notifications";
-import { useProvideAuth } from "../services/Auth";
+import { useProvideAuth } from "../../services/Auth";
 import { SyntheticEvent, useState } from "react";
-import { useAppDispatch } from "../hooks";
-import { setUserConnected } from "../store/User";
-import { ThreeDots } from "../css/threedots";
+import { useAppDispatch } from "../../hooks";
+import { setUserConnected } from "../../store/User";
+import { ThreeDots } from "../../css/threedots";
 
 export default function Login() {
   const [loading, setLoading] = useState<Boolean>(false);
@@ -41,18 +41,16 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center  ">
       <form
         onSubmit={login}
-        className="md:flex flex-col items-center justify-center mt-8 w-1/4"
+        className="md:flex flex-col items-center justify-center mt-44 w-1/4 "
       >
-        <div className="mb-3 space-y-2 md:flex flex-col w-full  ">
-          <label className="font-semibold text-gray-600 py-2">
-            Adresse Email
-          </label>
+        <div className="mb-3 space-y-2 md:flex flex-col w-full text-center">
+          <label className="text-lg py-2 text-white">Adresse Email</label>
           <input
             required
-            placeholder="entrez votre email"
+            placeholder="Entrez votre email"
             className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-12 px-4"
             type="email"
             name="email"
@@ -66,7 +64,7 @@ export default function Login() {
           <input
             type="submit"
             value="Se connecter"
-            className="bg-gray-800 text-white font-bold text-lg hover:bg-gray-700 p-2 my-4 rounded-lg  w-full cursor-pointer"
+            className="bg-gray-400 hover:bg-gray-500 text-white font-bold text-lg p-2 my-4 rounded-lg  w-full cursor-pointer"
           />
         )}
       </form>

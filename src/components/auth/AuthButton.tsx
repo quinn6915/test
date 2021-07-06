@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
-import { useAuth } from "../context/Auth";
-import { authType } from "../CostumType";
-import { useAppSelector } from "../hooks";
-import { ThreeDots } from "../css/threedots";
+import { useAuth } from "../../context/Auth";
+import { authType } from "../../CostumType";
+import { useAppSelector } from "../../hooks";
+import { ThreeDots } from "../../css/threedots";
 
 export function AuthButton() {
   const user = useAppSelector((state) => state.user);
@@ -13,13 +13,13 @@ export function AuthButton() {
   let auth = useAuth() as authType;
 
   return auth.user ? (
-    <div className="flex flex-col items-center justify-center mt-8">
-      <p className="text-lg">Bonjour {user.user?.name} !</p>
+    <div className="flex flex-col items-center justify-center mt-44 ">
+      <p className="text-lg text-white">Bonjour {user.user?.name} !</p>
       {loading ? (
         <ThreeDots color="silver" height="30" width="30" />
       ) : (
         <button
-          className="text-white font-bold text-lg bg-gray-800 p-2 my-4 rounded-lg hover:bg-gray-700  w-1/4"
+          className="text-white font-bold text-lg bg-gray-400 hover:bg-gray-500 p-2 my-4 rounded-lg w-1/4"
           onClick={() => {
             setLoading(true);
 
