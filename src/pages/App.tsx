@@ -7,7 +7,7 @@ import LoadingBar from "react-top-loading-bar";
 import { useRef } from "react";
 import ListPost from "../components/post/ListPost";
 import ListAlbum from "../components/album/ListAlbum";
-import { Auth } from "../components/Auth";
+import { Auth } from "../components/auth/Auth";
 import ListTodo from "../components/todo/ListTodo";
 
 export default function App() {

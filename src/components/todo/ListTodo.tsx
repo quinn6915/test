@@ -19,10 +19,22 @@ const ListTodo: FC = () => {
 
   return (
     <>
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center">
+        <div
+          className="h-96 bg-gradient-to-tl from-pink-400  to-purple-600 w-4/5 rounded-xl transform rotate-3 absolute top-1/3 "
+          style={{ zIndex: -1, position: "fixed" }}
+        ></div>
+      </div>
+      <div className="flex justify-center">
+        <div
+          className="h-96 bg-gray-300 w-4/5 rounded-xl transform rotate-0  absolute top-1/3 "
+          style={{ zIndex: -2, position: "fixed" }}
+        ></div>
+      </div>
+      <div className="flex justify-center my-4 ">
         <div className="w-1/3 ">
           <div className="flex mt-4 justify-center">
-            {auth.user ? (
+            {auth.user && todos.length !== 0 ? (
               <>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
@@ -33,7 +45,7 @@ const ListTodo: FC = () => {
                 />
                 <button
                   disabled={form.title === undefined || form.title === ""}
-                  className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-indigo-900 hover:bg-teal"
+                  className="flex-no-shrink p-2 border-2 rounded-lg text-teal border-teal hover:text-indigo-900 hover:bg-teal"
                   onClick={(e: SyntheticEvent) => submit(e)}
                 >
                   Ajouter
@@ -45,7 +57,6 @@ const ListTodo: FC = () => {
           </div>
         </div>
       </div>
-
       {todos.length === 0 && (
         <div className="flex justify-center items-center mt-32">
           <SpinnerCircular size="75" color="black" />
