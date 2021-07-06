@@ -17,10 +17,13 @@ export const todoSlice = createSlice({
     setAllTodo: (state, action: PayloadAction<any>) => {
       state.todos = action.payload;
     },
+    addTodo: (state, action: PayloadAction<any>) => {
+      state.todos.unshift(action.payload);
+    },
   },
 });
 
-export const { setAllTodo } = todoSlice.actions;
+export const { setAllTodo, addTodo } = todoSlice.actions;
 
 export const selectTodo = (state: RootState) => state.todo.todos;
 

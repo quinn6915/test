@@ -49,3 +49,7 @@ export type TodosType = {
 export type CommentInput = {
   body: string;
 };
+
+export type TodoInput = {
+  title: string;
+};

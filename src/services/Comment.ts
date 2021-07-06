@@ -1,5 +1,4 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-//import { comment } from "../api";
 import { CommentInput } from "../api/types";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addComment } from "../store/Comment";
@@ -29,10 +28,9 @@ export const useComment = () => {
   ) => {
     setLoading(true);
     event.preventDefault();
-    //const value = await comment(form, idPost);
     const value = {
       postId: idPost,
-      id: Math.floor(Math.random() * (1000 - 501) + 501),
+      id: Math.floor(Math.random() * (500 - 201) + 201),
       name: user?.name,
       email: user?.email,
       body: form.body,

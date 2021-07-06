@@ -1,6 +1,15 @@
-import { AlbumType, PhotoType, PostType, UserType } from "./api/types";
+import {
+  AlbumType,
+  PhotoType,
+  PostType,
+  TodosType,
+  UserType,
+} from "./api/types";
 
-export function UserName(data: PostType | AlbumType, users: UserType[]) {
+export function UserName(
+  data: PostType | AlbumType | TodosType,
+  users: UserType[]
+) {
   return users.map((u) => {
     return u.id === data.userId && u.name;
   });
