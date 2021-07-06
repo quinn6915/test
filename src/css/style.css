@@ -27,6 +27,8 @@
   color: #fff;
   display: flex;
   align-items: flex-end;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .hover-outer-box:hover .hover-inner-box {

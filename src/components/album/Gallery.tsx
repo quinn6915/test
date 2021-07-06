@@ -27,7 +27,7 @@ const Gallery: React.FC<IGallery> = ({ idPost }) => {
         />
         <div className="hover-inner-box ">
           <div className="hover-content">
-            <p>ouvrir</p>
+            <p className="text-sm">Voir tout</p>
           </div>
         </div>
       </div>
