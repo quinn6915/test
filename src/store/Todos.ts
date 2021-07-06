@@ -20,10 +20,16 @@ export const todoSlice = createSlice({
     addTodo: (state, action: PayloadAction<any>) => {
       state.todos.unshift(action.payload);
     },
+    toggleTodoStore: (state, action: PayloadAction<any>) => {
+      const index = state.todos.findIndex(
+        (obj) => obj.id === action.payload.id
+      );
+      state.todos[index] = action.payload;
+    },
   },
 });
 
-export const { setAllTodo, addTodo } = todoSlice.actions;
+export const { setAllTodo, addTodo, toggleTodoStore } = todoSlice.actions;
 
 export const selectTodo = (state: RootState) => state.todo.todos;
 

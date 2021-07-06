@@ -13,7 +13,7 @@ const ListTodo: FC = () => {
   useTodos();
   const todos = useAppSelector((state) => state.todo.todos);
   const users = useAppSelector((state) => state.user.users);
-  const { form, handleChange, submit } = useAddTodo();
+  const { form, handleChange, submit, toggleTodo } = useAddTodo();
 
   let auth = useAuth() as authType;
 
@@ -32,6 +32,7 @@ const ListTodo: FC = () => {
                   value={form.title}
                 />
                 <button
+                  disabled={form.title === undefined || form.title === ""}
                   className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-indigo-900 hover:bg-teal"
                   onClick={(e: SyntheticEvent) => submit(e)}
                 >
@@ -65,11 +66,17 @@ const ListTodo: FC = () => {
                 <p className="text-gray-500">{UserName(todo, users)}</p>
               </div>
               {todo.completed === false ? (
-                <button className="p-2 ml-2 ">
+                <button
+                  className="p-2 ml-2"
+                  onClick={(e) => toggleTodo(e, todo)}
+                >
                   <img className="h-8 w-8" src={uncheckmark} alt="Workflow" />
                 </button>
               ) : (
-                <button className="p-2 ml-2 ">
+                <button
+                  className="p-2 ml-2"
+                  onClick={(e) => toggleTodo(e, todo)}
+                >
                   <img className="h-8 w-8" src={checkmark} alt="Workflow" />
                 </button>
               )}

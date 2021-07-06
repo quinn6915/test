@@ -1,7 +1,8 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { TodoInput } from "../api/types";
+import { TodoInput, TodosType } from "../api/types";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addTodo } from "../store/Todos";
+import { toggleTodoStore } from "../store/Todos";
 
 export const useAddTodo = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -36,9 +37,16 @@ export const useAddTodo = () => {
     });
   };
 
+  const toggleTodo = (e: SyntheticEvent, todo: TodosType) => {
+    e.preventDefault();
+    const value = { ...todo, completed: !todo.completed };
+    dispatch(toggleTodoStore(value));
+  };
+
   return {
     form,
     handleChange,
     submit,
+    toggleTodo,
   };
 };
