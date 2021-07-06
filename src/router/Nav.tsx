@@ -46,19 +46,16 @@ export default function Nav() {
                   >
                     Todos
                   </NavLink>
-                  <NavLink
-                    exact
-                    to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Connexion
-                  </NavLink>
                 </div>
               </div>
             </div>
-            <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              {auth.user ? user.user?.name : "Déconnecté"}
-            </div>
+            <NavLink
+              exact
+              to="/"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              {auth.user ? user.user?.name : "Se connecter"}
+            </NavLink>
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
