@@ -23,13 +23,13 @@ const ListAlbum: FC = () => {
     <>
       <div className="flex justify-center">
         <div
-          className="h-96 bg-gradient-to-br from-gray-900  to-black-800 w-4/5 rounded-xl transform -rotate-2 absolute top-1/3 "
+          className="h-96 bg-gradient-to-br from-gray-900  to-black-800 w-4/5 rounded-3xl transform -rotate-2 absolute top-1/3 "
           style={{ zIndex: -1, position: "fixed" }}
         ></div>
       </div>
       <div className="flex justify-center">
         <div
-          className="h-96 bg-gray-300 w-4/5 rounded-xl transform -rotate-0  absolute top-1/3 "
+          className="h-96 bg-gray-300 w-4/5 rounded-3xl transform -rotate-0  absolute top-1/3 "
           style={{ zIndex: -2, position: "fixed" }}
         ></div>
       </div>
