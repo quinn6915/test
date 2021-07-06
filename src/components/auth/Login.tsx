@@ -41,10 +41,10 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center  ">
+    <div className="flex justify-center h-96 ">
       <form
         onSubmit={login}
-        className="md:flex flex-col items-center justify-center sm:mt-40 w-1/4 "
+        className="flex flex-col items-center justify-center md:w-1/4"
       >
         <div className="mb-3 space-y-2 md:flex flex-col w-full text-center">
           <label className="text-lg py-2 text-white">Adresse Email</label>
