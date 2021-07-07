@@ -59,7 +59,9 @@ export default function Login() {
           />
         </div>
         {loading ? (
-          <ThreeDots color="silver" height="30" width="30" />
+          <span className="p-2 my-4">
+            <ThreeDots color="silver" height="30" width="30" />
+          </span>
         ) : (
           <input
             type="submit"
