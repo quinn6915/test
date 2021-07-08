@@ -7,24 +7,23 @@ export const useComment = () => {
   const user = useAppSelector((state) => state.user.user);
 
   const dispatch = useAppDispatch();
-  const [form, setForm] = useState<CommentInput>({
-    body: "",
-  });
+  const [form, setForm] = useState<CommentInput>({});
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     i: number
   ) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setForm({
       ...form,
-      [name]: value,
+      [i]: value,
     });
   };
 
   const submit = async (
     event: SyntheticEvent,
     setLoading: Function,
-    idPost: number
+    idPost: number,
+    comment: string
   ) => {
     setLoading(true);
     event.preventDefault();
@@ -33,13 +32,11 @@ export const useComment = () => {
       id: Math.floor(Math.random() * (500 - 201) + 201),
       name: user?.name,
       email: user?.email,
-      body: form.body,
+      body: comment,
     };
 
     dispatch(addComment(value));
-    setForm({
-      body: "",
-    });
+    setForm({});
     setLoading(false);
   };
 

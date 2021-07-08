@@ -47,7 +47,7 @@ export type TodosType = {
 };
 
 export type CommentInput = {
-  body: string;
+  [index: number]: string;
 };
 
 export type TodoInput = {

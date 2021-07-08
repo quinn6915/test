@@ -78,17 +78,17 @@ const ListPost: FC = () => {
                   type="text"
                   className="focus:outline-none bg-gray-100 w-full"
                   placeholder="Votre commentaire"
-                  name="body"
+                  name={form[i]}
                   onChange={(e) => handleChange(e, i)}
-                  value={form.body}
+                  value={form[i] || ""}
                 />
                 {loading ? (
                   <SpinnerCircular size="25" color="black" />
                 ) : (
                   <button
-                    disabled={form.body === undefined || form.body === ""}
+                    disabled={form[i] === undefined || form[i] === ""}
                     onClick={(e: SyntheticEvent) =>
-                      submit(e, setLoading, item.id)
+                      submit(e, setLoading, item.id, form[i])
                     }
                   >
                     Envoyer
