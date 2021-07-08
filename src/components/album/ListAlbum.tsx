@@ -21,18 +21,6 @@ const ListAlbum: FC = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div
-          className="h-96 bg-gradient-to-br from-gray-900  to-black-800 w-4/5 rounded-3xl transform -rotate-2 absolute top-1/3 "
-          style={{ zIndex: -1, position: "fixed" }}
-        ></div>
-      </div>
-      <div className="flex justify-center">
-        <div
-          className="h-96 bg-gray-300 w-4/5 rounded-3xl transform -rotate-0  absolute top-1/3 "
-          style={{ zIndex: -2, position: "fixed" }}
-        ></div>
-      </div>
       {albums.length === 0 && (
         <div className="flex justify-center items-center mt-32">
           <SpinnerCircular size="75" color="black" />
