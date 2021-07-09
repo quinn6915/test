@@ -5,9 +5,9 @@ import { addComment } from "../store/Comment";
 
 export const useComment = () => {
   const user = useAppSelector((state) => state.user.user);
-
   const dispatch = useAppDispatch();
   const [form, setForm] = useState({});
+
   const handleChange = (event, i) => {
     const { value } = event.target;
     setForm({
@@ -25,7 +25,7 @@ export const useComment = () => {
       email: user?.email,
       body: body,
     };
-    const response = await comment(value);
+    let response = await comment(value);
     dispatch(addComment(response));
     setForm({});
     setLoading(false);
