@@ -31,14 +31,14 @@ const ListTodo = () => {
                 />
                 <button
                   disabled={form.title === undefined || form.title === ""}
-                  className="flex-no-shrink p-2 border-2 rounded-lg text-teal border-teal hover:text-indigo-900 hover:bg-teal"
+                  className="text-gray-500 flex-no-shrink p-2 border-2 rounded-lg text-teal border-teal hover:text-indigo-900 hover:bg-teal"
                   onClick={(e) => submit(e)}
                 >
                   Ajouter
                 </button>
               </>
             ) : (
-              <p className="text-gray-800">
+              <p className="text-gray-500">
                 Connectez-vous pour ajouter une todo
               </p>
             )}
