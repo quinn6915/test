@@ -15,7 +15,7 @@ const PrivatePage: React.FC<props> = ({ children }) => {
       <Nav />
       <div>
         {location.pathname !== "/" && (
-          <div className="sticky top-20 2xl:top-12" style={{ zIndex: -1 }}>
+          <div className="sticky top-24 2xl:top-16" style={{ zIndex: -1 }}>
             <div className="flex justify-center">
               <div
                 className={`h-96 w-4/5 rounded-3xl transform absolute top-16 2xl:top-28 ${gradient(
