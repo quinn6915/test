@@ -1,4 +1,4 @@
-frontend: react/typescript, tailwindCss
+frontend: react, tailwindCss
 
 Lancer les commandes suivantes:
 
