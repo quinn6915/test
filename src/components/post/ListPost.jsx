@@ -1,23 +1,21 @@
-import { PostType } from "../../api/types";
 import { useAppSelector } from "../../hooks";
 import { usePosts } from "../../services/Post";
-import { FC, SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "../../context/Auth";
-import { authType } from "../../CostumType";
 import { SpinnerCircular } from "spinners-react";
 import { UserCity, UserName, UserStreet, UserSuite } from "../../Utils";
 import { useComment } from "../../services/Comment";
 
-const ListPost: FC = () => {
+const ListPost = () => {
   usePosts();
   const users = useAppSelector((state) => state.user.users);
   const posts = useAppSelector((state) => state.post.posts);
   const comments = useAppSelector((state) => state.comment.comments);
-  const [loading, setLoading] = useState<Boolean>(false);
+  const [loading, setLoading] = useState(false);
 
   const { form, handleChange, submit } = useComment();
 
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
   return (
     <>
@@ -26,7 +24,7 @@ const ListPost: FC = () => {
           <SpinnerCircular size="75" color="black" />
         </div>
       )}
-      {posts.map((item: PostType, i: number) => (
+      {posts.map((item, i) => (
         <div key={i} className="flex justify-center">
           <div className="flex flex-col justify-center w-2/3 mt-8 border border-gray-100 bg-gray-100 rounded-lg">
             <div className="mt-4 flex items-center justify-center ml-8 mx-8">
@@ -75,7 +73,7 @@ const ListPost: FC = () => {
                 ) : (
                   <button
                     disabled={form[i] === undefined || form[i] === ""}
-                    onClick={(e: SyntheticEvent) =>
+                    onClick={(e) =>
                       submit(e, setLoading, item.id, form[i])
                     }
                   >

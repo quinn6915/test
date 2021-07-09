@@ -1,6 +1,5 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
-import { TodoInput, TodosType } from "../api/types";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addTodo } from "../store/Todos";
 import { toggleTodoStore } from "../store/Todos";
@@ -10,11 +9,11 @@ export const useAddTodo = () => {
   const { addToast } = useToasts();
 
   const dispatch = useAppDispatch();
-  const [form, setForm] = useState<TodoInput>({
+  const [form, setForm] = useState({
     title: "",
   });
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event
   ) => {
     const { name, value } = event.target;
     setForm({
@@ -23,7 +22,7 @@ export const useAddTodo = () => {
     });
   };
 
-  const submit = async (event: SyntheticEvent) => {
+  const submit = async (event) => {
     event.preventDefault();
     //const value = await comment(form, idPost);
     const value = {
@@ -43,7 +42,7 @@ export const useAddTodo = () => {
     });
   };
 
-  const toggleTodo = (e: SyntheticEvent, todo: TodosType) => {
+  const toggleTodo = (e, todo) => {
     e.preventDefault();
     const value = { ...todo, completed: !todo.completed };
     dispatch(toggleTodoStore(value));

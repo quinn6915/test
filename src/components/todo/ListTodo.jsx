@@ -1,7 +1,5 @@
 import { useAppSelector } from "../../hooks";
-import { FC, SyntheticEvent } from "react";
 import { useAuth } from "../../context/Auth";
-import { authType } from "../../CostumType";
 import { SpinnerCircular } from "spinners-react";
 import { useTodos } from "../../services/Todo";
 import { UserName } from "../../Utils";
@@ -9,13 +7,13 @@ import checkmark from "../../assets/check-mark.svg";
 import uncheckmark from "../../assets/unchecked.svg";
 import { useAddTodo } from "../../services/AddTodo";
 
-const ListTodo: FC = () => {
+const ListTodo = () => {
   useTodos();
   const todos = useAppSelector((state) => state.todo.todos);
   const users = useAppSelector((state) => state.user.users);
   const { form, handleChange, submit, toggleTodo } = useAddTodo();
 
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
   return (
     <>
@@ -34,7 +32,7 @@ const ListTodo: FC = () => {
                 <button
                   disabled={form.title === undefined || form.title === ""}
                   className="flex-no-shrink p-2 border-2 rounded-lg text-teal border-teal hover:text-indigo-900 hover:bg-teal"
-                  onClick={(e: SyntheticEvent) => submit(e)}
+                  onClick={(e) => submit(e)}
                 >
                   Ajouter
                 </button>

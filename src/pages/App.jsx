@@ -11,8 +11,8 @@ import { Auth } from "../components/auth/Auth";
 import ListTodo from "../components/todo/ListTodo";
 
 export default function App() {
-  const [loading, setLoading] = useState<Boolean>(true);
-  const ref = useRef<any>(null);
+  const [loading, setLoading] = useState(true);
+  const ref = useRef(null);
 
   useEffect(() => {
     ref.current?.continuousStart();

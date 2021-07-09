@@ -1,13 +1,12 @@
 import { Redirect, Route } from "react-router-dom";
 import { useAuth } from "../context/Auth";
-import { authType } from "../CostumType";
 
-export const AppRoute: React.ComponentType<any> = ({
+export const AppRoute = ({
   component: Component,
   layout: Layout,
   ...rest
 }) => {
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
   return (
     <Route
@@ -30,7 +29,7 @@ export const AppRoute: React.ComponentType<any> = ({
   );
 };
 
-export const PrivateRoute: React.ComponentType<any> = ({
+export const PrivateRoute = ({
   component: Component,
   layout: Layout,
   ...rest

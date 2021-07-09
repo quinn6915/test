@@ -1,25 +1,25 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { getOneUser } from "../api";
 
 const fakeAuth = {
   isAuthenticated: false,
-  signin(cb: () => void) {
+  signin(cb) {
     fakeAuth.isAuthenticated = true;
     setTimeout(cb, 100); // fake async
   },
-  signout(cb: () => void) {
+  signout(cb) {
     fakeAuth.isAuthenticated = false;
     setTimeout(cb, 100);
   },
 };
 
 export function useProvideAuth() {
-  const [user, setUser] = useState<String | null>(null);
-  const [form, setForm] = useState<{ email: string }>({
+  const [user, setUser] = useState(null);
+  const [form, setForm] = useState({
     email: "",
   });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setForm({
       ...form,
@@ -35,14 +35,14 @@ export function useProvideAuth() {
     return response;
   }
 
-  const signin = (cb: () => void) => {
+  const signin = (cb) => {
     return fakeAuth.signin(async () => {
       setUser("user");
       cb();
     });
   };
 
-  const signout = (cb: () => void) => {
+  const signout = (cb) => {
     return fakeAuth.signout(() => {
       setUser(null);
       cb();

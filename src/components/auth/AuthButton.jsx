@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { useAuth } from "../../context/Auth";
-import { authType } from "../../CostumType";
 import { useAppSelector } from "../../hooks";
 import { ThreeDots } from "../../css/threedots";
 
 export function AuthButton() {
   const user = useAppSelector((state) => state.user);
   const { addToast } = useToasts();
-  const [loading, setLoading] = useState<Boolean>(false);
+  const [loading, setLoading] = useState(false);
 
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
   return auth.user ? (
     <div className="flex flex-col items-center justify-center h-96 ">

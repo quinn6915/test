@@ -4,11 +4,7 @@ import "react-bnb-gallery/dist/style.css";
 import { useAppSelector } from "../../hooks";
 import { getPhotos } from "../../Utils";
 
-type IGallery = {
-  idPost: number;
-};
-
-const Gallery: React.FC<IGallery> = ({ idPost }) => {
+const Gallery= ({ idPost }) => {
   const photos = useAppSelector((state) => state.photo.photo);
   const photosItems = getPhotos(photos, idPost);
   const [galleryOpened, setGalleryOpened] = useState(false);

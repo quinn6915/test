@@ -3,18 +3,14 @@ import { useLocation } from "react-router-dom";
 import Nav from "../router/Nav";
 import { gradient, gradientGray } from "../css/gradient";
 
-type props = {
-  children: React.ReactNode;
-};
-
-const PrivatePage: React.FC<props> = ({ children }) => {
+const PrivatePage = ({ children }) => {
   const location = useLocation();
 
   return (
     <>
       <Nav />
       <div>
-        {location.pathname !== "/" && (
+        {(location.pathname !== "/" && location.pathname !== "/Albums") ? (
           <div className="sticky top-24 2xl:top-16" style={{ zIndex: -1 }}>
             <div className="flex justify-center">
               <div
@@ -32,7 +28,7 @@ const PrivatePage: React.FC<props> = ({ children }) => {
               ></div>
             </div>
           </div>
-        )}
+        ) : ""}
         {children}
       </div>
     </>

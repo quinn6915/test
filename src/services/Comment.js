@@ -1,5 +1,4 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { CommentInput } from "../api/types";
+import {  useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addComment } from "../store/Comment";
 
@@ -7,10 +6,10 @@ export const useComment = () => {
   const user = useAppSelector((state) => state.user.user);
 
   const dispatch = useAppDispatch();
-  const [form, setForm] = useState<CommentInput>({});
+  const [form, setForm] = useState({});
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    i: number
+    event,
+    i
   ) => {
     const { value } = event.target;
     setForm({
@@ -20,10 +19,10 @@ export const useComment = () => {
   };
 
   const submit = async (
-    event: SyntheticEvent,
-    setLoading: Function,
-    idPost: number,
-    comment: string
+    event,
+    setLoading,
+    idPost,
+    comment
   ) => {
     setLoading(true);
     event.preventDefault();

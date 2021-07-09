@@ -9,15 +9,15 @@ export const post = classNames(
 
 export const album = classNames(
   "bg-gradient-to-br",
-  "from-gray-900 ",
-  "to-black-800",
+  "from-blue-400 ",
+  "to-blue-800",
   "-rotate-3"
 );
 
 export const todo = classNames(
   "bg-gradient-to-tl",
   "from-pink-400",
-  "to-purple-600",
+  "to-purple-800",
   "rotate-3"
 );
 
@@ -25,7 +25,7 @@ export const secondPost = classNames("-rotate-3");
 export const secondAlbum = classNames("-rotate-0");
 export const secondTodo = classNames("rotate-0");
 
-export function gradient(path: string) {
+export function gradient(path) {
   if (path === "/Posts") {
     return post;
   }
@@ -37,7 +37,7 @@ export function gradient(path: string) {
   }
 }
 
-export function gradientGray(path: string) {
+export function gradientGray(path) {
   if (path === "/Posts") {
     return secondPost;
   }

@@ -1,21 +1,20 @@
-import { authType } from "../../CostumType";
 import { useAuth } from "../../context/Auth";
 import { useToasts } from "react-toast-notifications";
 import { useProvideAuth } from "../../services/Auth";
-import { SyntheticEvent, useState } from "react";
+import {  useState } from "react";
 import { useAppDispatch } from "../../hooks";
 import { setUserConnected } from "../../store/User";
 import { ThreeDots } from "../../css/threedots";
 
 export default function Login() {
-  const [loading, setLoading] = useState<Boolean>(false);
+  const [loading, setLoading] = useState(false);
   const { addToast } = useToasts();
   const { form, handleChange, connect } = useProvideAuth();
   const dispatch = useAppDispatch();
 
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
-  let login = (event: SyntheticEvent) => {
+  let login = (event) => {
     event.preventDefault();
     setLoading(true);
 

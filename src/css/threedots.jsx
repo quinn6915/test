@@ -1,4 +1,4 @@
-export const ThreeDots = (svg: any) => (
+export const ThreeDots = (svg) => (
   <svg
     width={svg.width}
     height={svg.height}

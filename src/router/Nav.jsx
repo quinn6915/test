@@ -3,14 +3,13 @@ import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../hooks";
-import { authType } from "../CostumType";
 import { useAuth } from "../context/Auth";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const user = useAppSelector((state) => state.user);
   const location = useLocation();
-  let auth = useAuth() as authType;
+  let auth = useAuth();
 
   return (
     <>
