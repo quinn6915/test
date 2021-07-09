@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState  = {
+const initialState = {
   posts: [],
 };
 
 export const postSlice = createSlice({
-  name: "car",
+  name: "post",
   initialState,
   reducers: {
     setAllPost: (state, action) => {

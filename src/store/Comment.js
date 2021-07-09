@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const commentSlice = createSlice({
-  name: "car",
+  name: "comment",
   initialState,
   reducers: {
     setAllComment: (state, action) => {
