@@ -32,18 +32,17 @@ export default function Nav() {
                   >
                     Posts
                   </NavLink>
-
-                  <NavLink
-                    to="/Albums"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Albums
-                  </NavLink>
                   <NavLink
                     to="/Todos"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Todos
+                  </NavLink>
+                  <NavLink
+                    to="/Albums"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Albums
                   </NavLink>
                 </div>
               </div>
@@ -121,16 +120,16 @@ export default function Nav() {
                   Posts
                 </NavLink>
                 <NavLink
-                  to="/Albums"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Album
-                </NavLink>
-                <NavLink
                   to="/Todos"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Todos
+                </NavLink>
+                <NavLink
+                  to="/Albums"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Album
                 </NavLink>
                 <NavLink
                   exact

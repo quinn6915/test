@@ -9,8 +9,8 @@ export const post = classNames(
 
 export const album = classNames(
   "bg-gradient-to-br",
-  "from-blue-400 ",
-  "to-blue-800",
+  "from-pink-400",
+  "to-purple-800",
   "-rotate-3"
 );
 
