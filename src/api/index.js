@@ -42,10 +42,20 @@ export async function getOneUser(email) {
     .catch((error) => error);
 }
 
-export async function comment(form, idPost) {
-  return await axios
-    .put(`${URL_API}/comment`, form)
-    .then((res) => res.data)
+export async function comment(value) {
+  return await fetch(`${URL_API}/comments`, {
+    method: "POST",
+    body: JSON.stringify({
+      body: value.body,
+      email: value.email,
+      name: value.name,
+      postId: value.postId,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
     .catch((error) => error);
 }
 

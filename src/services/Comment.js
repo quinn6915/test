@@ -1,4 +1,5 @@
-import {  useState } from "react";
+import { useState } from "react";
+import { comment } from "../api";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addComment } from "../store/Comment";
 
@@ -7,10 +8,7 @@ export const useComment = () => {
 
   const dispatch = useAppDispatch();
   const [form, setForm] = useState({});
-  const handleChange = (
-    event,
-    i
-  ) => {
+  const handleChange = (event, i) => {
     const { value } = event.target;
     setForm({
       ...form,
@@ -18,23 +16,17 @@ export const useComment = () => {
     });
   };
 
-  const submit = async (
-    event,
-    setLoading,
-    idPost,
-    comment
-  ) => {
+  const submit = async (event, setLoading, idPost, body) => {
     setLoading(true);
     event.preventDefault();
     const value = {
       postId: idPost,
-      id: Math.floor(Math.random() * (500 - 201) + 201),
       name: user?.name,
       email: user?.email,
-      body: comment,
+      body: body,
     };
-
-    dispatch(addComment(value));
+    const response = await comment(value);
+    dispatch(addComment(response));
     setForm({});
     setLoading(false);
   };

@@ -72,10 +72,9 @@ const ListPost = () => {
                   <SpinnerCircular size="25" color="black" />
                 ) : (
                   <button
+                    className="focus:outline-none"
                     disabled={form[i] === undefined || form[i] === ""}
-                    onClick={(e) =>
-                      submit(e, setLoading, item.id, form[i])
-                    }
+                    onClick={(e) => submit(e, setLoading, item.id, form[i])}
                   >
                     Envoyer
                   </button>
